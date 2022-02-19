@@ -24,9 +24,9 @@ def _sts_client(target_account_id):
     else:
         client = boto3.client(
             'sts',
-            access_key_id=target['Credentials']['AccessKeyId'],
-            secret_access_key=target['Credentials']['SecretAccessKey'],
-            session_token=target['Credentials']['SessionToken']
+            aws_access_key_id=target['Credentials']['AccessKeyId'],
+            aws_secret_access_key=target['Credentials']['SecretAccessKey'],
+            aws_session_token=target['Credentials']['SessionToken']
         )
         logger.info('[END] _sts_client')
         return client
