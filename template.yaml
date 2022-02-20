@@ -5,7 +5,7 @@ Globals:
   Function:
     Runtime: python3.8
     Timeout: 600
-    Handler: app.lambda_handler
+    CodeUri: scripts
     Architectures:
       - arm64            
 
@@ -20,7 +20,7 @@ Resources:
     Properties:
       FunctionName: !Sub "${Project}-check-assume-role"
       Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-controltower-AuditAdministratorRole"
-      CodeUri: src/check_assume_role
+      Handler: check_assume_role.lambda_handler
 
 Outputs:
   CheckFunction:
